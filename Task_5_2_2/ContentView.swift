@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var email = ""
+    @State var password = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            VStack{
+                Text("Email").frame(maxWidth: .infinity,alignment: .leading).padding(.horizontal)
+                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.horizontal)
+                Text("Password").frame(maxWidth: .infinity,alignment: .leading).padding(.horizontal)
+                TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.horizontal)
+            }
+            VStack(spacing: 10){
+                ProgressView().progressViewStyle(CircularProgressViewStyle())
+                Text("Loading")
+            }
+        }
     }
 }
 
